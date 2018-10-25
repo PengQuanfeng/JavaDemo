@@ -1,0 +1,5 @@
+insert into user(id, name, phoneNumber) values(1,'Freud1',18301957023);
+insert into user(id, name, phoneNumber) values(2,'Freud2',18301957023);
+insert into user(id, name, phoneNumber) values(3,'Freud3',18301957023);
+insert into user(id, name, phoneNumber) values(4,'Freud4',18301957023);
+insert into user(id, name, phoneNumber) values(5,'Freud5',18301957023);

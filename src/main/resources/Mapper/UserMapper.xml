@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo3.DAO.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo3.Domain.User">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="phoneNumber" property="phoneNumber" />
+    </resultMap>
+
+    <parameterMap id="User" type="com.example.demo3.Domain.User"/>
+
+    <sql id="Base_Column_List">
+		id, name, phoneNumber
+	</sql>
+
+    <select id="FindUserById" resultMap="BaseResultMap" parameterType="java.util.UUID">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where  id= #{id}
+    </select>
+
+    <insert id="AddUser"  parameterType="com.example.demo3.Domain.User" >
+       INSERT INTO
+            User
+            (id,name,phoneNumber)
+        VALUES
+            (#{user.id}, #{user.name}, #{user.phoneNumber})
+    </insert>
+
+    <update id="UpdateUser" parameterType="com.example.demo3.Domain.User">
+        UPDATE
+        User
+        SET
+        <if test="user.phoneNumber!= null">phoneNumber = #{user.phoneNumber},</if>
+        name = #{user.name}
+        WHERE
+        id = #{user.id}
+    </update>
+
+    <delete id="DeleteUser" parameterType="java.lang.Long" >
+       DELETE FROM
+             user
+       WHERE
+             id =#{id}
+    </delete>
+</mapper>

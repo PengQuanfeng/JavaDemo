@@ -1,0 +1,8 @@
+CREATE TABLE `user` (
+  `id` varchar (100) NOT NULL ,
+  `name` varchar(50) NOT NULL,
+  `phoneNumber` varchar (13) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DELETE FROM `user`;
